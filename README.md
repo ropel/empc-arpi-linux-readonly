@@ -11,6 +11,7 @@ Prerequisites:
 * Raspbian Stretch Lite (2017-09-07)
 
 scripts based on: https://gist.github.com/mutability/6cc944bde1cf4f61908e316befd42bc4
+and https://github.com/janztec/empc-arpi-linux-readonly
 
 Make Filesystem Read-Only
 =========================
@@ -46,7 +47,7 @@ sudo nano /etc/rsyslog.conf
 **Install script**
 ```
 cd /tmp
-wget https://raw.githubusercontent.com/janztec/empc-arpi-linux-readonly/master/install-experimental.sh -O install-experimental.sh
+wget https://raw.githubusercontent.com/ropel/empc-arpi-linux-readonly/master/install-experimental.sh -O install-experimental.sh
 pi@raspberrypi:/tmp $ sudo bash install-experimental.sh
 ```
 
