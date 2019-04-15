@@ -1,4 +1,4 @@
-Proteggi la µSD card  del tuo Raspberry Pi (usa un filesystem read-only)
+Proteggi la µSD card  del tuo Raspberry Pi (usando un filesystem read-only)
 =============================================================
 
 **ATTENZIONE!! IMPOSTAZIONI SPERIMENTALI:fai una copia di backup della tua µSD card prima di applicare queste impostazioni!**
