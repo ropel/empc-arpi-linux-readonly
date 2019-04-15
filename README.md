@@ -9,6 +9,7 @@ Proteggi la µSD card  del tuo Raspberry Pi (usando un filesystem read-only)
 Prerequisiti:
 * Raspbian Stretch with Desktop (2017-09-07)
 * Raspbian Stretch Lite (2017-09-07)
+
 Testato con successo anche con la Raspbian stretch lite 2018-11-13
 
 scripts basati su: https://gist.github.com/mutability/6cc944bde1cf4f61908e316befd42bc4
