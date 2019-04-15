@@ -1,37 +1,37 @@
-Protect your Raspberry Pi µSD card (use read-only filesystem)
+Proteggi la µSD card  del tuo Raspberry Pi (usa un filesystem read-only)
 =============================================================
 
-**WARNING!! EXPERIMENTAL SETTINGS: create a backup copy of your µSD card before applying these settings!**
+**ATTENZIONE!! IMPOSTAZIONI SPERIMENTALI:fai una copia di backup della tua µSD card prima di applicare queste impostazioni!**
 
-* makes filesystem read only to prevent filesystem corruption after power fail
-* writes to µSD card are redirected to overlay filesystem in RAM 
+* rendi il filesystem read only per evitarne l'accidentale danneggiamento quando si toglie l'alimentazione
+* le operazioni di scrittura sulla µSD card vengono dirottate su un overlay filesystem in RAM 
 
-Prerequisites:
+Prerequisiti:
 * Raspbian Stretch with Desktop (2017-09-07)
 * Raspbian Stretch Lite (2017-09-07)
 
-scripts based on: https://gist.github.com/mutability/6cc944bde1cf4f61908e316befd42bc4
-and https://github.com/janztec/empc-arpi-linux-readonly
+scripts basati su: https://gist.github.com/mutability/6cc944bde1cf4f61908e316befd42bc4
+e: https://github.com/janztec/empc-arpi-linux-readonly
 
-Make Filesystem Read-Only
+Rendere il Filesystem Read-Only
 =========================
 
-**Disable SWAP**
+**Disabilitare lo SWAP**
 ```
 sudo dphys-swapfile swapoff
 sudo systemctl disable dphys-swapfile
 sudo apt-get purge dphys-swapfile
 ```
 
-**Disable man indexing**
+**Disabilitare il man indexing**
 ```
 sudo chmod -x /etc/cron.daily/man-db
 sudo chmod -x /etc/cron.weekly/man-db
 ```
 
-**Move /var/log to tmpfs**
+**Spostare /var/log to tmpfs**
 
-Append to file /etc/fstab
+Aggiungere al file /etc/fstab (utilizzare nano o  vi)
 
 _tmpfs		/var/log	tmpfs	size=70M	0	0_
 ```
@@ -39,12 +39,12 @@ sudo nano /etc/fstab
 ```
 
 
-**Disable unwanted log files**
+**Disabilitare log files non necessari**
 ```
 sudo nano /etc/rsyslog.conf
 ```
 
-**Install script**
+**Installare lo script script**
 ```
 cd /tmp
 wget https://raw.githubusercontent.com/ropel/empc-arpi-linux-readonly/master/install-experimental.sh -O install-experimental.sh
@@ -52,10 +52,10 @@ pi@raspberrypi:/tmp $ sudo bash install-experimental.sh
 ```
 
 
-Check Status
+Check Stato
 -------------
 
-* Read only mode is enabled
+* Read only mode abilitato
 ```
 pi@raspberrypi:/home/pi $ sudo df
 Filesystem     1K-blocks    Used Available Use% Mounted on
@@ -66,7 +66,7 @@ overlay-rw        262144  115108    147036  44% /rw
 ```
 
 
-Make Filesystem Read-Write Again
+Rendere il Filesystem nuovamente Read-Write 
 ================================
 
 * sudo nano /boot/cmdline.txt
@@ -75,10 +75,10 @@ Make Filesystem Read-Write Again
 * sudo reboot
 
 
-Check Status
+Check Stato
 -------------
 
-* Read only mode is disabled
+* Read only mode disabilitato
 ```
 pi@raspberrypi:/home/pi $ sudo df
 Filesystem     1K-blocks    Used Available Use% Mounted on
